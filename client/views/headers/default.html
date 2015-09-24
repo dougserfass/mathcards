@@ -1,0 +1,10 @@
+<template name="defaultHeader">
+  <span class="glyphicon glyphicon-menu-hamburger btn" onclick="location.reload();"></span>
+  {{#if currentUser}}
+    <a class="btn" type="button" href="{{pathFor 'famousView'}}">My Cards</a>
+    {{#if currentUserIsAdmin}}
+      <a class="btn" type="button" href="/admin">Admin</a>
+    {{/if}}
+  {{/if}}
+  {{> loginButtons align="left"}}
+</template>

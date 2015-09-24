@@ -1,0 +1,196 @@
+
+<template name="famousView">
+
+
+
+  {{#if currentUser}}
+
+
+<!-- Famo.us cards sequential layout + Scrollview -->
+<!-- Sequential layout helps to set the spacing between two consecutive cards and scrollview helps to listen to scroll events -->
+
+<!--<span class="glyphicon glyphicon-triangle-right setToRight"></span>--> <!-- To let the user know, to drag the card to the right-->
+
+
+  <fa-app ng-controller="ModifierCtrl" ng-cloak>
+
+    <!-- Header is a famo.us surface -->
+    <!--<fa-header-footer-layout fa-options="{headerSize:50}">-->
+
+        <!-- Header surface -->
+        <!--fa-surface fa-background-color="'whitesmoke'" class="famousHeader">
+          <span class="glyphicon glyphicon-menu-hamburger menuIcon needsclick" ng-click="menuClick();"></span>
+          <div class="btn-group move-right ">
+            <button type="button" class="needsclick squareBtn btn  btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="needsclick glyphicon glyphicon-search"></span></button>
+            <ul class="dropdown-menu dropdown-menu-right noPadding" role="menu" style="min-width:[[ searchWidth ]]px">
+              <li><angucomplete id="search-box"
+              placeholder="Search..."
+              pause="100"
+              selectedobject="selectedCountry"
+              localdata="cards"
+              searchfields="category"
+              titlefield="category"
+              minlength="1"
+              inputclass="form-control squareBtn"></angucomplete></li>
+            </ul>
+          </div>
+        </fa-surface>-->
+
+          <!-- Menu -->
+
+
+          <fa-view>
+            <fa-modifier fa-size="menuSize" fa-translate="menuTranslate2">
+              <fa-surface fa-background-color="'#E4F1FE'">
+                <div class="">
+                  <ul class="nav nav-pills nav-stacked">
+                  <br>
+                      <li role="presentation" class="[[ active1 ]]" ng-click="setActive(1);goHome();"><a href="#" class="needsclick" ng-click="menuClick();">Home</a></li>
+                      <li role="presentation" class="[[ active2 ]]" ng-click="setActive(2);sortByColour();"><a href="#" class="needsclick" ng-click="menuClick();">Sort by colour</a></li>
+                      <li role="presentation" class="[[ active3 ]]" ng-click="setActive(3);sortByLetter();"><a href="#" class="needsclick" ng-click="menuClick();">Sort by letter</a></li>
+                      <li role="presentation" class="[[ active4 ]]" ng-click="setActive(4);"><a href="#">Sets</a></li>
+                      <li role="presentation" class="[[ active5 ]]" ng-click="setActive(5);"><a href="#">Shop</a></li>
+                      <li role="presentation" class="[[ active6 ]]" ng-click="setActive(6);"><a href="#">Settings</a></li>
+                      <li role="presentation" class="[[ active7 ]]" ng-click="setActive(7);">
+                          {{#if currentUser}}
+                          <a  id="logoutBtn" href="" ng-click="logoutBtn();"> 
+                            <span>Logout</span>
+                          </a>
+                          {{else}}
+                          <a  id="loginBtn" href="" ng-click="loginBtn();"> 
+                            <span>Login</span>
+                          </a>
+                          {{/if}}
+                      </li>
+                  </ul>
+                </div>
+              </fa-surface>
+            </fa-modifier>
+          </fa-view>
+
+
+        <!--<fa-draggable id="card-draggable" fa-pipe-from="dragHandler;eventHandler" fa-options="myOptions">-->
+          <!-- Card Scrolling screen -->
+              <!--<fa-modifier fa-size="cardSpaceView" fa-translate="menuTranslate1">-->
+                <fa-scroll-view id="card-scrollview" fa-pipe-from="eventHandler" fa-options="options.scrollViewTwo">  
+                  <fa-sequential-layout id="card-sequentiallayout">
+                    <!-- A card is responsive and adjusts to screen size -->
+                    <fa-view ng-repeat="t in cards">
+                      <fa-modifier fa-size="card.size" fa-translate="card.translate.get()">
+                        <fa-surface fa-pipe-to="dragHandler;eventHandler"  fa-background-color="t.color" fa-color="'white'" class="card">
+
+
+
+                              <button class="btn squareBtn editBtn" ng-click="openEditModal($index);"><span class="glyphicon glyphicon-pencil"></span></button><br>
+
+
+
+                          
+                          <div class="titleBox" id="titleBox" style="padding:[[ cardPad ]];">
+                            <span class="titleBoxTitle">[[ t.title ]]</span> <br>
+                            <span>[[ t.category ]]</span> 
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-3">
+                            </div>
+                            <div class="col-xs-9 overflow" style="height:[[ cardDescHeight ]];">
+                              <span class="preserveLines">[[ t.description ]] </span>
+                            </div>
+                          </div>
+                          <div class="titleBox" id="texOutputBox" style="padding:[[ cardPad ]];">
+                            <span class="titleBoxTitle">
+                              <div class="tex-output">
+                                $[[ t.tex ]]$
+                              </div>
+                            </span>
+                          </div>
+                          <div class="overflow" style="height:[[ cardExaHeight ]]px;">
+                            <ol>
+                              <li  ng-repeat="ex in t.examples track by $index">
+                                <span class="preserveLines">[[ ex ]]</span>
+                              </li>
+                            </ol>
+                          </div>
+
+                        </fa-surface>
+                      </fa-modifier>
+                    </fa-view>
+                    <script>
+                      //MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                    </script>
+                  </fa-sequential-layout>
+                </fa-scroll-view>
+              <!--</fa-modifier>-->
+          <!--</fa-draggable>-->
+    <!--</fa-header-footer-layout>-->
+  </fa-app>
+
+  {{else}}
+  <div class="container">
+    <div class="jumbotron">
+      <h1><span style="color: #3498db">M</span><span style="color: #9b59b6">a</span><span style="color: #f39c12">t</span><span style="color: #95a5a6">h</span><span style="color: #1abc9c">C</span><span style="color: #f1c40f">a</span><span style="color: #1abc9c">r</span><span style="color: #3498db">d</span><span style="color: #f39c12">s</span></h1>
+      <p>The easy way to learn math.</p>
+    </div>
+  </div>
+  {{/if}}
+
+</template>
+
+<!-- Edit modal -->
+<template name="cardEdit">
+    <div class="modal fade">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          
+          <div class="modal-header">
+            <button type="button" class="btn btn-default pull-right" data-dismiss="modal"> &#10005; </button>
+            <h4 class="title">Edit card</h4>
+          </div>
+
+          <div class="modal-body">
+            <div class="modalForm" style="height:{{setModalHeight}} !important;">
+              <label for="edit-title">Title</label>
+              <input type="text" id="edit-title" class="form-control"><br>
+              <label for="edit-description">Description</label>
+              <textarea rows="3" id="edit-description" class="form-control"></textarea><br>
+              <label for="edit-category">Category</label>
+              <input type="text" id="edit-category" class="form-control"><br>
+              <label for="edit-tex">TeX</label>
+              <input type="text" id="edit-tex" class="form-control"><br>
+              <label for="edit-color">Color</label>
+              <input type="text" id="edit-color" class="form-control"><br>
+              <label for="edit-example">Examples</label>
+              <ul>
+                {{#each examples}}
+                    <div class="input-group">
+                      <textarea rows="1" class="form-control" id="edit-example-{{index}}" aria-describedby="examp-addon-{{index}}">{{ value }}</textarea> 
+                      <span class="input-group-addon btn-default pointer" id="examp-addon-{{index}}">&#10005;</span>
+                    </div>
+                {{/each}}
+                <button class="btn btn-default needsclick" id="add-more">Add more &#10010; </button>
+              </ul> 
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn btn-primary" id="save-edit">Save</button>
+            <button class="btn btn-default" id="cancel-edit">Cancel</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+</template>
+
+<template name="searchResult">
+
+  <input type="text" id="search-box" placeholder="Search..." ><br>
+  {{#each getCards}}
+    <div class="package">
+      <h4 class="name">
+        {{title}}
+      </h4>
+    </div>
+  {{/each}}
+
+</template>

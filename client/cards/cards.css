@@ -1,0 +1,129 @@
+
+.card {
+	border-radius: 0px;	
+	box-shadow: 10px 10px 5px  #888888;
+	padding: 10px;
+}
+
+.noPadding {
+	padding:1px;
+}
+
+.modal-content {
+	border-radius: 0px !important;
+}
+
+.modalForm {
+	z-index: 1000;
+	overflow: scroll !important;
+	-webkit-overflow-scrolling: touch !important;
+}
+
+.move-right {
+	z-index: 10000;
+	position: absolute;
+	right: 10px;
+	top: 8px;
+}
+
+.overflow {
+	overflow: scroll !important;
+	-webkit-overflow-scrolling: touch !important;
+}
+
+.preserveLines {
+	white-space: pre-wrap;
+}
+
+.setToRight {
+	position: absolute;
+	left: 0px;
+	top: 49%;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.famousHeader {
+	z-index: 100;
+}
+
+.overZ {
+	z-index: 100000;
+}
+
+.whiteBack {
+	background-color: white !important;
+}
+
+li[role="presentation"].active1 {
+	background-color: #C5EFF7;
+	width: 100%;
+	height: 100%;
+	color: white !important;
+}
+
+.menuIcon {
+  font-size: 1.6em;
+  margin: 12.25px;
+  cursor: pointer;
+}
+
+.titleBox {
+	text-align: center;
+	background-color: white; 
+	color: black !important;
+	opacity:0.5;
+}
+
+.titleBoxTitle {
+	font-size: 3em;
+}
+
+.marginLogBtn {
+	margin-top: 6px;
+	margin-right: 10px;
+}
+
+.header {
+	z-index: 10;
+}
+
+.editBtn {
+	background-color: #E4F1FE;
+	z-index: 100;
+	color: black !important;
+	position: absolute;
+	right: 10px;
+}
+
+.metBtn {
+	border-radius: 0;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -200px;
+	margin-left: -100px;
+	height: 200px;
+	width: 200px;
+	text-align: center;
+
+}
+
+.cardGraph6 {
+	background-color:red;
+	margin: 10px;
+	border-radius: 50%;
+}
+
+.cardTitle {
+	text-align: center;
+	margin: 10px;
+	border: 1px dotted red;
+	padding: 2px;
+}
+

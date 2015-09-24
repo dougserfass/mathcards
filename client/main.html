@@ -1,0 +1,19 @@
+<head>
+  <title>MathCards</title>
+  <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no">
+  <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+  <script type="text/javascript"
+          src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+</head>
+
+<template name="layout">
+  <div class="container-fluid">
+  {{> defaultHeader}}
+  <div id="main" class="row-fluid">
+  {{> yield}}
+  </div>
+  </div>
+</template>
